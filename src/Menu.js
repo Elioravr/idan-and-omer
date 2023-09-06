@@ -1,12 +1,20 @@
 import { useState, useCallback } from 'react';
 
-function Menu() {
+function Menu({ setCurrentPage }) {
   const [isOpen, setIsOpen] = useState(false);
   const toggleMenu = useCallback(() => {
     setIsOpen(!isOpen);
   }, [isOpen]);
 
-  console.log('isOpen', isOpen);
+  const createMenuButtonCallback = useCallback(
+    (pageId) => {
+      return () => {
+        setCurrentPage(pageId);
+        setIsOpen(false);
+      };
+    },
+    [setCurrentPage]
+  );
 
   return (
     <div className='Menu'>
@@ -16,12 +24,36 @@ function Menu() {
         <div className={`line-3 ${isOpen ? 'open' : ''}`}></div>
       </div>
       <div className={`menu-container ${isOpen ? 'open' : ''}`}>
-        <div className='menu-item'>דף הבית</div>
-        <div className='menu-item'>המלון</div>
-        <div className='menu-item'>לוח הזמנים</div>
-        <div className='menu-item'>מה להביא?</div>
-        <div className='menu-item'>מידע שימושי</div>
-        <div className='menu-item'>תגובות</div>
+        <div className='menu-item' onClick={createMenuButtonCallback('Home')}>
+          דף הבית
+        </div>
+        <div className='menu-item' onClick={createMenuButtonCallback('Hotel')}>
+          המלון
+        </div>
+        <div
+          className='menu-item'
+          onClick={createMenuButtonCallback('Schedule')}
+        >
+          לוח הזמנים
+        </div>
+        <div
+          className='menu-item'
+          onClick={createMenuButtonCallback('WhatToBring')}
+        >
+          מה להביא?
+        </div>
+        <div
+          className='menu-item'
+          onClick={createMenuButtonCallback('Information')}
+        >
+          מידע שימושי
+        </div>
+        <div
+          className='menu-item'
+          onClick={createMenuButtonCallback('Comments')}
+        >
+          תגובות
+        </div>
       </div>
     </div>
   );

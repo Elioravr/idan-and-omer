@@ -84,6 +84,16 @@ $text-color: rgb(151 201 213);
   }
 
   .page {
+    opacity: 0;
+    pointer-events: none;
+    display: none;
+
+    &.visible {
+      opacity: 1;
+      pointer-events: all;
+      display: block;
+    }
+
     &.home {
       .title {
         height: 700px;
