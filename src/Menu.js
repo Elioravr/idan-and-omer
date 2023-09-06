@@ -15,6 +15,14 @@ function Menu() {
         <div className={`line-2 ${isOpen ? 'open' : ''}`}></div>
         <div className={`line-3 ${isOpen ? 'open' : ''}`}></div>
       </div>
+      <div className={`menu-container ${isOpen ? 'open' : ''}`}>
+        <div className='menu-item'>דף הבית</div>
+        <div className='menu-item'>המלון</div>
+        <div className='menu-item'>לוח הזמנים</div>
+        <div className='menu-item'>מה להביא?</div>
+        <div className='menu-item'>מידע שימושי</div>
+        <div className='menu-item'>תגובות</div>
+      </div>
     </div>
   );
 }
