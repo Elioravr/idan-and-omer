@@ -23,7 +23,7 @@ $text-color: rgb(151 201 213);
       position: absolute;
       top: 20px;
       left: 20px;
-      z-index: 10;
+      z-index: 11;
 
       .line-1,
       .line-2,
@@ -69,6 +69,7 @@ $text-color: rgb(151 201 213);
       justify-content: center;
       align-items: center;
       flex-direction: column;
+      z-index: 10;
 
       &.open {
         transform: translateY(0);
