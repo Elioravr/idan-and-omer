@@ -33,6 +33,31 @@ function WhatToBring() {
     [addTodo]
   );
 
+  const createHandleToggleDoneCallback = useCallback(
+    (index) => {
+      return () => {
+        const newList = [...todoList];
+        newList[index] = {
+          title: newList[index].title,
+          isDone: !newList[index].isDone,
+        };
+        setTodoList(newList);
+      };
+    },
+    [todoList]
+  );
+
+  const createHandleDeleteTodoCallback = useCallback(
+    (index) => {
+      return () => {
+        const newList = [...todoList];
+        newList.splice(index, 1);
+        setTodoList(newList);
+      };
+    },
+    [todoList]
+  );
+
   return (
     <div className='what-to-bring-container'>
       <div className='add-todo-container'>
@@ -52,16 +77,30 @@ function WhatToBring() {
         תרגישו חופשי להוסיף משימות, הרשימה היא אישית למכשיר שלכם, נשמרת בשבילכם
         ולא עוברת למשתמשים האחרים 🤩
       </div>
-      {todoList.map((todo) => {
+      {todoList.map((todo, index) => {
+        const id = `todo-${index}`;
+        const handleToggleDone = createHandleToggleDoneCallback(index);
         return (
-          <div className='todo-container'>
+          <div className='todo-container' key={id}>
             <input
               className='todo-checkbox'
               type='checkbox'
               value={todo.isDone}
+              onChange={handleToggleDone}
+              id={id}
             />
-            <div className='todo-title'>{todo.title}</div>
-            <div className='delete-button'>X</div>
+            <label
+              className={`todo-title ${todo.isDone ? 'done' : ''}`}
+              htmlFor={id}
+            >
+              {todo.title}
+            </label>
+            <div
+              className='delete-button'
+              onClick={createHandleDeleteTodoCallback(index)}
+            >
+              X
+            </div>
           </div>
         );
       })}
