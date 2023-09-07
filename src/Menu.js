@@ -33,14 +33,11 @@ function Menu({ setCurrentPage }) {
         >
           לוח הזמנים
         </div>
-        <div className='menu-item' onClick={createMenuButtonCallback('Hotel')}>
-          המלון
-        </div>
         <div
           className='menu-item'
           onClick={createMenuButtonCallback('WhatToBring')}
         >
-          מה להביא?
+          צ׳ק ליסט
         </div>
         <div
           className='menu-item'

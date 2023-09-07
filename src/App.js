@@ -63,16 +63,10 @@ function App() {
         </div>
       </Page>
 
-      <Page pageClassName='hotel' isVisible={currentPage === 'Hotel'}>
-        <div className='title'>
-          <div>Hotel</div>
-        </div>
-      </Page>
-
       <Page
         pageClassName='what-to-bring'
         isVisible={currentPage === 'WhatToBring'}
-        title='What To Bring?'
+        title='Todo List'
       >
         <WhatToBring />
       </Page>
