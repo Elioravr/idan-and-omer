@@ -125,7 +125,7 @@ function WhatToBring() {
               type='checkbox'
               checked={todo.isDone}
               onChange={handleToggleDone}
-              isDisabled={todo.isDisabled}
+              disabled={todo.isDisabled}
               id={id}
             />
             <label
