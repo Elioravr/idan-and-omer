@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 
 const defaultTodos = [
   { title: 'דרכון', isDone: false },
@@ -13,15 +13,26 @@ function WhatToBring() {
   const [addTodoInputValue, setAddTodoInputValue] = useState('');
   const [todoList, setTodoList] = useState(defaultTodos);
 
+  useEffect(() => {
+    const listInJson = localStorage.getItem('idanAndOmerList');
+    if (listInJson != null) {
+      setTodoList(JSON.parse(listInJson));
+    }
+  }, []);
+
   const addTodo = useCallback(() => {
     if (addTodoInputValue === '') {
       return;
     }
 
+    const newList = [...todoList, { title: addTodoInputValue, isDone: false }];
+
     setTodoList((currentList) => {
-      return [...todoList, { title: addTodoInputValue, isDone: false }];
+      return newList;
     });
     setAddTodoInputValue('');
+
+    localStorage.setItem('idanAndOmerList', JSON.stringify(newList));
   }, [addTodoInputValue, todoList]);
 
   const handleInputKeyUp = useCallback(
@@ -42,6 +53,7 @@ function WhatToBring() {
           isDone: !newList[index].isDone,
         };
         setTodoList(newList);
+        localStorage.setItem('idanAndOmerList', JSON.stringify(newList));
       };
     },
     [todoList]
@@ -53,6 +65,7 @@ function WhatToBring() {
         const newList = [...todoList];
         newList.splice(index, 1);
         setTodoList(newList);
+        localStorage.setItem('idanAndOmerList', JSON.stringify(newList));
       };
     },
     [todoList]
@@ -85,7 +98,7 @@ function WhatToBring() {
             <input
               className='todo-checkbox'
               type='checkbox'
-              value={todo.isDone}
+              checked={todo.isDone}
               onChange={handleToggleDone}
               id={id}
             />
