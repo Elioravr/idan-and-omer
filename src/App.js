@@ -3,6 +3,7 @@ import Menu from './Menu';
 import Page from './Page';
 import ScheduleHeader from './ScheduleHeader';
 import ScheduleItem from './ScheduleItem';
+import WhatToBring from './WhatToBring';
 import './App.scss';
 
 function App() {
@@ -21,10 +22,11 @@ function App() {
         </div>
       </Page>
 
-      <Page pageClassName='schedule' isVisible={currentPage === 'Schedule'}>
-        <div className='title'>
-          <div>Schedule</div>
-        </div>
+      <Page
+        pageClassName='schedule'
+        isVisible={currentPage === 'Schedule'}
+        title='Schedule'
+      >
         <div className='schedule-container'>
           <ScheduleHeader date='חמישי - 20.06.2024' />
           <ScheduleItem emoji={'🛩️'} text='נותחים באתונה' />
@@ -67,10 +69,12 @@ function App() {
         </div>
       </Page>
 
-      <Page pageClassName='hotel' isVisible={currentPage === 'WhatToBring'}>
-        <div className='title'>
-          <div>WhatToBring</div>
-        </div>
+      <Page
+        pageClassName='what-to-bring'
+        isVisible={currentPage === 'WhatToBring'}
+        title='What To Bring?'
+      >
+        <WhatToBring />
       </Page>
 
       <Page pageClassName='hotel' isVisible={currentPage === 'Information'}>
