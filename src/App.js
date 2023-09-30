@@ -15,11 +15,12 @@ function App() {
       <Menu setCurrentPage={setCurrentPage} />
 
       <Page pageClassName='home' isVisible={currentPage === 'Home'}>
-        <div className='title'>
+        <div className='text title'>
           <div>Idan</div>
           <div>&</div>
           <div>Omer</div>
         </div>
+        <div className='text dates'>22.06 - 20.06</div>
       </Page>
 
       <Page
@@ -31,35 +32,36 @@ function App() {
           <ScheduleHeader date='חמישי - 20.06.2024' />
           <ScheduleItem emoji={'🛩️'} text='נותחים באתונה' />
           <ScheduleItem emoji={'🚌'} text='נסיעה של כשעה למלון בהסעות' />
-          <ScheduleItem emoji={'🛎️'} text='צ׳ק אין במלון' />
-          <ScheduleItem emoji={'🍽️'} text='ארוחת צהריים' />
+          <ScheduleItem emoji={'🥂'} text='דרינק ראשון וצ׳ק אין' />
+          <ScheduleItem emoji={'🍽️'} text='ארוחת צהריים של אחרי טיסה' />
           <ScheduleItem emoji={'🏖️'} text='זמן חופשי' />
           <ScheduleItem
             emoji={'🇬🇷'}
-            text='Taverna Night - ארוחת ערב ומסיבת טברנה יוונית'
+            text='טברנה יווניתתת'
             isLast
           />
 
           <div className='separator'></div>
 
           <ScheduleHeader date='שישי - 21.06.2024' />
-          <ScheduleItem emoji={'🌤️'} text='ארוחת בוקר כיפית במלון' />
-          <ScheduleItem emoji={'🪩'} text='מסיבת בריכה חלל' />
-          <ScheduleItem emoji={'🍱'} text='ארוחת צהריים ונשנושים בבריכה' />
-          <ScheduleItem emoji={'👔'} text='מתאפסים ומתארגנים לחתונה' />
-          <ScheduleItem emoji={'💍'} text='טקס החתונה' />
+          <ScheduleItem emoji={'🥞'} text='ארוחת בוקר כיפית במלון' />
+          <ScheduleItem emoji={'🪩'} text='בגד ים, מוזיקה ואוזו בבריכה' />
+          <ScheduleItem emoji={'🍔'} text='מנשנשים צהריים במים' />
+          <ScheduleItem emoji={'👔'} text='זמן חופשי לשנוצ ולהתגנדר' />
+          <ScheduleItem emoji={'💍'} text='מתחתניםםםםםם!!!!!!!' />
           <ScheduleItem
-            emoji={'🎊'}
-            text='ארוחת ערב ומסיבה עד שמתעייפים'
+            emoji={'💃🏼'}
+            text='אוכלים, רוקדים ומגבות באווירררררר'
             isLast
           />
 
           <div className='separator'></div>
 
           <ScheduleHeader date='שבת - 22.06.2024' />
-          <ScheduleItem emoji={'🌤️'} text='ארוחת בוקר כיפית במלון' />
+          <ScheduleItem emoji={'☕'} text='בוקר של אחרי בבופה' />
           <ScheduleItem emoji={'🧳'} text='צ׳ק אאוט ב-11:30' />
-          <ScheduleItem emoji={'🚌'} text='נסיעה לשדה התעופה בהסעות' isLast />
+          <ScheduleItem emoji={'🥰'} text='נשיקות חיבוקים' />
+          <ScheduleItem emoji={'🚌'} text='חוזרים הביתה בהסעות' isLast />
         </div>
       </Page>
 

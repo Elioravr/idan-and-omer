@@ -2,30 +2,50 @@ import { useState, useCallback, useEffect } from 'react';
 
 const defaultTodos = [
   {
-    title: 'מלון, בריכה פרטית רק לנו וחוף צמוד(!!) - עלינו כפרות',
+    title: 'מלון, בריכה פרטית וחוף צמוד(!!) - ',
+    subTitle: 'עלינו כפרות',
     isDone: true,
     isDisabled: true,
   },
-  { title: 'ארוחות ושתייה - כלוללללללל', isDone: true, isDisabled: true },
+  { 
+    title: 'ארוחות ושתייה - ', 
+    subTitle: 'כלוללללללל',
+    isDone: true, 
+    isDisabled: true 
+  },
   {
-    title: 'מסיבות ואווירה יוונית - כלוללללללל',
+    title: 'מסיבות ואווירה יוונית - ',
+    subTitle: 'כלוללללללל',
     isDone: true,
     isDisabled: true,
   },
-  { title: 'תעדכנו את הבוס שבחמישי ושישי אתם לא מגיעים!!', isDone: false },
-  { title: 'תזמינו כרטיסי טיסה לאתונה - לפי ההסעות', isDone: false },
+  { 
+    title: 'תזמינו כרטיסי טיסה לאתונה - ', 
+    subTitle: 'לפי ההסעות',
+    isDone: false },
   {
-    title: 'תעדכנו אותנו שאתם מגיעים - באיזה טיסה ושאטל שאתם רוצים',
+    title: 'תעדכנו אותנו שאתם מגיעים - ',
+    subTitle: 'באיזה טיסה ושאטל שאתם רוצים',
     isDone: false,
   },
   {
-    title: 'תבדקו שנייה את הפספורט - יש תוקף לחצי שנה מיוני 2024?',
+    title: 'תבדקו שנייה את הפספורט - ',
+    subTitle: 'יש תוקף לחצי שנה מיוני 2024?',
     isDone: false,
   },
-  { title: 'תסגרו ביטוח נסיעות אישי - למה הולך להיות טירוף', isDone: false },
-  { title: 'בגדים לחתונה', isDone: false },
-  { title: 'נעליים לחתונה', isDone: false },
-  { title: 'בגד ים', isDone: false },
+  { 
+    title: 'תסגרו ביטוח נסיעות אישי - ',
+    subTitle: 'למה הולך להיות טירוף',
+    isDone: false 
+  },
+  { 
+    title: 'תעדכנו את הבוס.ית - ', 
+    subTitle: 'בחמישי ושישי אתם לא מגיעים!!',
+    isDone: false },
+  { title: 'טוטאל לוק חגיגי לחתונה', isDone: false },
+  { title: 'לוק ערב לטברנה', isDone: false },
+  { title: 'בגדי חופשה', isDone: false },
+  { title: 'בגדי ים', isDone: false },
   { title: 'כפכפים', isDone: false },
   { title: 'קרם הגנה', isDone: false },
 ];
@@ -75,6 +95,7 @@ function WhatToBring() {
         const newList = [...todoList];
         newList[index] = {
           title: newList[index].title,
+          subTitle: newList[index].subTitle,
           isDone: !newList[index].isDone,
         };
         setTodoList(newList);
@@ -95,6 +116,17 @@ function WhatToBring() {
     },
     [todoList]
   );
+
+  const createLabel = (index) => {
+        const todo = todoList[index];
+        if(!todo.subTitle){
+          return (todo.title);
+        } else {
+          return (<span><span className='todoTitleSpecial'>{todo.title}</span>
+          <span className='todoSubTitleSpecial'>{todo.subTitle}</span>
+          </span>)
+        }
+      };
 
   return (
     <div className='what-to-bring-container'>
@@ -132,7 +164,7 @@ function WhatToBring() {
               className={`todo-title ${todo.isDone ? 'done' : ''}`}
               htmlFor={id}
             >
-              {todo.title}
+              {createLabel(index)}
             </label>
             {!todo.isDisabled && (
               <div

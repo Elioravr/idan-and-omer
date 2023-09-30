@@ -111,14 +111,19 @@ $text-color: rgb(227, 208, 181);
     &.home {
       .title {
         height: 700px;
-        color: $text-color;
-        font-family: 'Dancing Script', cursive;
         display: flex;
-        justify-content: center;
-        align-items: center;
         flex-direction: column;
         font-size: 90px;
+      }
+      .text {
+        color: $text-color;
+        font-family: 'Dancing Script', cursive;
+        justify-content: center;
+        align-items: center;
         text-shadow: 1px 1px 2px black;
+      }
+      .dates {
+        font-size: 45px;
       }
     }
 
@@ -224,7 +229,11 @@ $text-color: rgb(227, 208, 181);
             font-size: 18px;
 
             &.done {
-              text-decoration: line-through;
+              // text-decoration: line-through;
+              color: #6c757d;
+            }
+            .todoSubTitleSpecial {
+              font-size: 14px;
             }
           }
           .delete-button {
