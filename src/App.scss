@@ -1,9 +1,26 @@
 $text-color: rgb(227, 208, 181);
 
+html{
+  min-height:100%;/* make sure it is at least as tall as the viewport */
+}
+body{
+  height:100%; /* force the BODY element to match the height of the HTML element */
+}
+#root {
+  height: 100%;
+}
 .App {
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    overflow:hidden;
+    z-index:-1; /* Remove this line if it's not going to be a background! */
+
   text-align: center;
   direction: rtl;
   font-family: 'Varela Round', sans-serif;
+  height: 100%;
 
   .background {
     position: fixed;
@@ -182,7 +199,7 @@ $text-color: rgb(227, 208, 181);
       }
 
       .separator {
-        width: 400px;
+        width: 100%;
         height: 2px;
         background-color: $text-color;
         margin: 20px auto;
@@ -241,6 +258,43 @@ $text-color: rgb(227, 208, 181);
             left: 20px;
           }
         }
+      }
+    }
+
+    &.information {
+      background: rgba(255, 255, 255, 0.8);
+      padding: 20px;
+      padding-top: 6px;
+      min-height: 100%;
+      height: 100%;
+      width: 100%;
+      .section-container{
+        min-height: 25%;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .info-title {
+        font-size: 28px;
+        margin-top: 20px;
+        min-width: 100%;
+        text-align: right;
+      }
+
+      .text {
+        min-width: 100%;
+        text-align: right;
+        div {
+          margin-top: 10px;
+        }
+      }
+
+      .separator {
+        width: 100%;
+        height: 2px;
+        background-color: $text-color;
+        margin: 20px auto;
       }
     }
   }

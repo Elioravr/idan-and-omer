@@ -73,10 +73,73 @@ function App() {
         <WhatToBring />
       </Page>
 
-      <Page pageClassName='hotel' isVisible={currentPage === 'Information'}>
+      <Page pageClassName='information' isVisible={currentPage === 'Information'}>
         <div className='title'>
           <div>Information</div>
         </div>
+
+        <div className='useful-information-container' >
+          <div className='section-container'>
+            <div className='info-title'>איך מגיעים</div>
+            <div className='text'>
+              <div>
+                ארגנו עבורכם שני שאטלים שיאספו אתכם משדה התעופה באתונה (ATH) ויביאו אתכם עד המלון. השאטלים מתוכננים לשעות:
+              </div>
+              <div>
+                11:00 - מיועד למשקימי קום לטיסות שנוחתות בסביבות 10
+              </div>
+              <div>
+                13:00 - מיועד לכמה טיסות שכבר ראינו שנוחתות בסביבות 12
+              </div>
+              <div>
+                יש טיסות שנוחתות יותר מאוחר, למה לא בהן?
+              </div>
+              <div>
+                להגיע למלון בשעה 16-17 יהיה לכם מאוחר ולא תספיקו לקלוט מה קורה וכבר אתם באירוע ערב!
+              </div>
+              <div>
+              חשוב לנו שיהיה לכם זמן להתאקלם, לעשות צ׳קאין כמו שצריך והכי חשוב - להיכנס לאווירה!
+              </div>
+            </div>
+          </div>
+          <div className='separator'></div>
+          <div className='section-container'>
+
+            <div className='info-title'>אישורי הגעה</div>
+            <div className='text'>
+              <div>
+                כמו שאתם כבר יודעים, אנחנו מחכים ומתרגשים לשמוע שסגרתם טיסות!
+              </div>
+              <div>
+                שלחו לנו וואטסאפ עם צילום מסך של המספר טיסה והשעות הלוך חזור
+              </div>
+              <div>
+                על מנת שנוכל לתאם עבורכם ועבור כולם את ההסעה הטובה ביותר!
+              </div>
+            </div>
+          </div>
+
+          <div className='separator'></div>
+          <div className='section-container'>
+
+            <div className='info-title'>איך חוזרים</div>
+            <div className='text'>
+              <div>
+                ניפרד בערך ב11:30 ביום שבת (עצוב לנו כבר מעכשיו)
+              </div>
+              <div>
+                נעלה לשאטלים בערך שעה אחרי
+              </div>
+              <div>
+                נרד בשדה התעופה באתונה (נסיעה של כשעה, רק מזכירים).
+              </div>
+              <div>
+                לא נעצור אתכם אם תישארו באתונה, תעשו שופינג, תעברו לאי אחר או תחזרו ישר הביתה.
+              </div>
+            </div>
+          </div>
+        </div>
+
       </Page>
 
       <Page pageClassName='hotel' isVisible={currentPage === 'Comments'}>
