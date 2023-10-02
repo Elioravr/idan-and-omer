@@ -40,19 +40,7 @@ function App() {
           Ready??
         </div>
         <div className='container'>
-          <img id='img1' alt="1" />
-          <img src="image2.jpg" alt="2" />
-        </div>
-        <div className='description-container'>
-          <div className='description-item'>סופ״ש חתונה יוונית</div>
-          <div className='description-item'>אוכל טוב</div>
-          <div className='description-item'>מלא אוזו</div>
-          <div className='description-item'>שמש</div>
-          <div className='description-item'>ים</div>
-          <div className='description-item'>ומוזיקה</div>
-          <div className='description-item'>עם האנשים שאנחנו הכי אוהבים בחיים שלנו</div>
-          <div className='description-item'>באירוע אחד מושקע ביותר באי Evia ביוון</div>
-
+          <img id='welcome-img'/>
         </div>
       </Page>
       <div className='page-separator'></div>
