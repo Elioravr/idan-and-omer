@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useCallback, useRef } from 'react';
 import Menu from './Menu';
 import Page from './Page';
 import ScheduleHeader from './ScheduleHeader';
@@ -7,14 +7,25 @@ import WhatToBring from './WhatToBring';
 import './App.scss';
 
 function App() {
-  const [currentPage, setCurrentPage] = useState('Home');
+  const ref = useRef(null);
+  const setCurrentPage = useCallback((pageId) => {
+    const listNode = ref.current;
+    // This line assumes a particular DOM structure:
+    const imgNode = listNode.querySelector(`#${pageId}`);
+    imgNode.scrollIntoView({
+      behavior: 'smooth'
+      // block: 'nearest',
+      // inline: 'center'
+    });
+  },
+    [ref]);
 
   return (
-    <div className='App'>
+    <div className='App' ref={ref}>
       <div className='background'></div>
       <Menu setCurrentPage={setCurrentPage} />
 
-      <Page pageClassName='home' isVisible={currentPage === 'Home'}>
+      <Page id='Home' pageClassName='home' isVisible={true}> {/*isVisible={currentPage === 'Home'}>*/}
         <div className='text title'>
           <div>Idan</div>
           <div>&</div>
@@ -22,12 +33,35 @@ function App() {
         </div>
         <div className='text dates'>22.06 - 20.06</div>
       </Page>
+      <div className='page-separator'></div>
+
+      <Page id='Entrance' pageClassName='entrance' isVisible={true}> {/*isVisible={currentPage === 'Entrance'}>*/}
+        <div className='title'>
+          Ready??
+        </div>
+        <div className='container'>
+          <img id='img1' alt="1" />
+          <img src="image2.jpg" alt="2" />
+        </div>
+        <div className='description-container'>
+          <div className='description-item'>סופ״ש חתונה יוונית</div>
+          <div className='description-item'>אוכל טוב</div>
+          <div className='description-item'>מלא אוזו</div>
+          <div className='description-item'>שמש</div>
+          <div className='description-item'>ים</div>
+          <div className='description-item'>ומוזיקה</div>
+          <div className='description-item'>עם האנשים שאנחנו הכי אוהבים בחיים שלנו</div>
+          <div className='description-item'>באירוע אחד מושקע ביותר באי Evia ביוון</div>
+
+        </div>
+      </Page>
+      <div className='page-separator'></div>
 
       <Page
+        id='Schedule'
         pageClassName='schedule'
-        isVisible={currentPage === 'Schedule'}
         title='Schedule'
-      >
+        isVisible={true}> {/*isVisible={currentPage === 'Schedule'}>*/}
         <div className='schedule-container'>
           <ScheduleHeader date='חמישי - 20.06.2024' />
           <ScheduleItem emoji={'🛩️'} text='נותחים באתונה' />
@@ -64,16 +98,21 @@ function App() {
           <ScheduleItem emoji={'🚌'} text='חוזרים הביתה בהסעות' isLast />
         </div>
       </Page>
+      <div className='page-separator'></div>
 
       <Page
+        id='WhatToBring'
         pageClassName='what-to-bring'
-        isVisible={currentPage === 'WhatToBring'}
         title='Todo List'
-      >
+        isVisible={true}> {/*isVisible={currentPage === 'WhatToBring'}>*/}
         <WhatToBring />
       </Page>
+      <div className='page-separator'></div>
 
-      <Page pageClassName='information' isVisible={currentPage === 'Information'}>
+      <Page
+        id='Information'
+        pageClassName='information'
+        isVisible={true}> {/*isVisible={currentPage === 'Information'}>*/}
         <div className='title'>
           <div>Information</div>
         </div>
@@ -91,14 +130,16 @@ function App() {
               <div>
                 13:00 - מיועד לכמה טיסות שכבר ראינו שנוחתות בסביבות 12
               </div>
-              <div>
-                יש טיסות שנוחתות יותר מאוחר, למה לא בהן?
-              </div>
-              <div>
-                להגיע למלון בשעה 16-17 יהיה לכם מאוחר ולא תספיקו לקלוט מה קורה וכבר אתם באירוע ערב!
-              </div>
-              <div>
-              חשוב לנו שיהיה לכם זמן להתאקלם, לעשות צ׳קאין כמו שצריך והכי חשוב - להיכנס לאווירה!
+              <div className='side-note-container'>
+                <div>
+                  *יש טיסות שנוחתות יותר מאוחר, למה לא בהן?
+                </div>
+                <div>
+                  להגיע למלון בשעה 16-17 יהיה לכם מאוחר ולא תספיקו לקלוט מה קורה וכבר אתם באירוע ערב!
+                </div>
+                <div>
+                  חשוב לנו שיהיה לכם זמן להתאקלם, לעשות צ׳קאין כמו שצריך והכי חשוב - להיכנס לאווירה!
+                </div>
               </div>
             </div>
           </div>
@@ -125,24 +166,24 @@ function App() {
             <div className='info-title'>איך חוזרים</div>
             <div className='text'>
               <div>
-                ניפרד בערך ב11:30 ביום שבת (עצוב לנו כבר מעכשיו)
+                נפרד לאחר הצ׳ק אאוט מהמלון ב11:30 ביום שבת (עצוב לנו כבר מעכשיו!!!!)
               </div>
               <div>
-                נעלה לשאטלים בערך שעה אחרי
+                נעלה לשאטלים חזרה לאתונה - נסיעה של כשעה, רק מזכירים.
               </div>
               <div>
-                נרד בשדה התעופה באתונה (נסיעה של כשעה, רק מזכירים).
-              </div>
-              <div>
-                לא נעצור אתכם אם תישארו באתונה, תעשו שופינג, תעברו לאי אחר או תחזרו ישר הביתה.
+                לא נעצור אתכם אם תישארו באתונה, תעשו שופינג, תעברו לאי אחר או תחזרו ישר הביתה ❤️
               </div>
             </div>
           </div>
         </div>
 
       </Page>
+      <div className='page-separator'></div>
 
-      <Page pageClassName='hotel' isVisible={currentPage === 'Comments'}>
+      <Page
+        id='Comments'
+        pageClassName='hotel' isVisible={true}> {/*isVisible={currentPage === 'Comments'}>*/}
         <div className='title'>
           <div>Comments</div>
         </div>

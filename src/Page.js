@@ -1,6 +1,6 @@
-function Page({ title, children, isVisible, pageClassName }) {
+function Page({ id, title, children, isVisible, pageClassName }) {
   return (
-    <div className={`page ${pageClassName} ${isVisible ? 'visible' : ''}`}>
+    <div id={id} className={`page ${pageClassName} ${isVisible ? 'visible' : ''}`}>
       {title && (
         <div className='title'>
           <div>{title}</div>
