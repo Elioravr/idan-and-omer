@@ -1,4 +1,4 @@
-import { useCallback, useRef } from 'react';
+import { useCallback, useRef, useState, useEffect } from 'react';
 import Menu from './Menu';
 import Page from './Page';
 import ScheduleHeader from './ScheduleHeader';
@@ -6,9 +6,13 @@ import ScheduleItem from './ScheduleItem';
 import WhatToBring from './WhatToBring';
 import './App.scss';
 import CommentsPage from './Comments';
+import thanks from './thanks.gif';
 
 function App() {
   const ref = useRef(null);
+  const imageRef = useRef(null);
+  const [marginTop, setMarginTop] = useState(0);
+  const [marginBottom, setMarginBottom] = useState(0);
   const setCurrentPage = useCallback((pageId) => {
     const listNode = ref.current;
     // This line assumes a particular DOM structure:
@@ -19,6 +23,35 @@ function App() {
   },
     [ref]);
 
+  const handleImageLoad = () => {
+    const image = imageRef.current;
+
+    if (image) {
+      const imageHeight = image.clientHeight;
+      const viewportHeight = window.innerHeight;
+
+      // Calculate margins to fill the viewport height
+      const remainingHeight = viewportHeight - imageHeight;
+      const marginTop = remainingHeight / 2;
+      const marginBottom = remainingHeight / 2;
+
+      setMarginTop(marginTop);
+      setMarginBottom(marginBottom);
+    }
+  };
+
+  useEffect(() => {
+    // Calculate margins when the component mounts
+    handleImageLoad();
+
+    // // Recalculate margins on window resize
+    // window.addEventListener('resize', handleImageLoad);
+
+    // // Cleanup the event listener when the component unmounts
+    // return () => {
+    //   window.removeEventListener('resize', handleImageLoad);
+    // };
+  }, []);
   return (
     <div className='App' ref={ref}>
       <div className='background'></div>
@@ -32,8 +65,10 @@ function App() {
         </div>
         <div className='text dates'>22.06 - 20.06</div>
       </Page>
-      <div id='Entrance' className='img-container page'>
-        <img id='welcome-img' alt='mySvgImage' />
+      <div id='Entrance' className='img-container'>
+        <img id='welcome-img' alt='mySvgImage' onLoad={handleImageLoad}
+  ref={imageRef}
+  style={{ marginTop: `${marginTop}px`, marginBottom: `${marginBottom}px` }} />
       </div>
       <Page
         id='Schedule'
@@ -58,7 +93,7 @@ function App() {
           <ScheduleItem emoji={'🥞'} text='ארוחת בוקר כיפית במלון' />
           <ScheduleItem emoji={'🪩'} text='בגד ים, מוזיקה ואוזו בבריכה' />
           <ScheduleItem emoji={'🍔'} text='מנשנשים צהריים במים' />
-          <ScheduleItem emoji={'👔'} text='זמן חופשי לשנוצ ולהתגנדר' />
+          <ScheduleItem emoji={'🧖‍♀️'} text='זמן חופשי לשנוצ ולהתגנדר' />
           <ScheduleItem emoji={'💍'} text='מתחתניםםםםםם!!!!!!!' />
           <ScheduleItem
             emoji={'💃🏼'}
@@ -77,7 +112,7 @@ function App() {
       </Page>
       <div className='seperators-container'>
         <img id='seperator-1-img' alt='mySvgImage' />
-        </div>
+      </div>
 
       <Page
         id='WhatToBring'
@@ -87,7 +122,7 @@ function App() {
       </Page>
       <div className='seperators-container'>
         <img id='seperator-2-img' alt='mySvgImage' />
-        </div>
+      </div>
 
       <Page
         id='Information'
@@ -155,13 +190,10 @@ function App() {
         </div>
 
       </Page>
-      {/* <div className='seperators-container'>
-        <img id='seperator-3-img' alt='mySvgImage' />
-        </div> */}
 
-        <div className='thanks-container'>
-        <img id='thanks-img' alt='mySvgImage' />
-        </div>
+      <div className='thanks-container'>
+        <img id='thanks-img' alt='mySvgImage' src={thanks} />
+      </div>
       <Page
         id='Comments'
         pageClassName='comments'>

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { initializeApp } from 'firebase/app';
 import { getFirestore, collection, addDoc, orderBy, query, getDocs, limit, serverTimestamp } from 'firebase/firestore';
 import moment from 'moment';
-
+const PAGE_LIMIT = 200;
 const firebaseConfig = {
   apiKey: "AIzaSyDQk4hyBImS1NK9_IVgdKw20L67EzLftnY",
   authDomain: "idan-and-omer.firebaseapp.com",
@@ -26,7 +26,7 @@ const CommentsPage = () => {
   // Function to fetch comments from Firebase
   const fetchComments = async () => {
     const commentsRef = collection(db, 'comments');
-    const commentsQuery = query(commentsRef, orderBy('timestamp', 'desc'), limit(50));
+    const commentsQuery = query(commentsRef, orderBy('timestamp', 'desc'), limit(PAGE_LIMIT));
     const snapshot = await getDocs(commentsQuery);
 
     // const snapshot = await commentsRef.orderBy('timestamp', 'desc').get();
@@ -62,42 +62,38 @@ const CommentsPage = () => {
       <div>
         <input
           type="text"
-          placeholder="תנו שם"
+          placeholder="שם בת.ז"
           value={name}
           onChange={(e) => setName(e.target.value)}
         />
-        <textarea
-          rows="4"
-          cols="50"
+        <input
+          type="text"
           placeholder="כל מה שעולה לכם לראש"
           value={newComment}
           onChange={(e) => setNewComment(e.target.value)}
-        ></textarea>
-        <button onClick={addComment}>Add Comment</button>
+        />
+        <button onClick={addComment}>הוסף</button>
       </div>
       <div className="comments-list">
-        <ul className="comments-ul">
-          {comments.map((comment, index) => (
-            <li key={index} className="comment-item">
-              {/* <strong>{comment.name}:</strong> {comment.text} */}
-              {/* <p className="comment-name">{comment.name}:</p>
-              <p className="comment-time">
-                  {formatTimestamp(comment.timestamp)}
-                </p>
-              <p className="comment-text">{comment.text}</p> */}
-
-              <div className="comment-title">
-                <div className="comment-name">{comment.name}</div>
-                <div className="comment-time">
-                  {formatTimestamp(comment.timestamp)}
-                </div>
-                </div>
-              <div className="comment-content">
-                <p className="comment-text">{comment.text}</p>
-              </div>
-            </li>
-          ))}
-        </ul>
+        <div className='comments-table-wrapper'>
+        <table className="comments-table">
+          <tbody>
+            {comments.map((comment, index) => (
+              <tr key={index}>
+                <td>
+                  <div className="comment-title">
+                    <div className="comment-name">{comment.name}</div>
+                    <div className="comment-time">
+                      {formatTimestamp(comment.timestamp)}
+                    </div>
+                  </div>
+                </td>
+                <td className='comment-text' >{comment.text}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+        </div>
       </div>
     </div>
   );
