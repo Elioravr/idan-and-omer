@@ -112,36 +112,39 @@ body {
     max-height: 100vh;
     background: white;
     max-width: 100vw;
+
     #welcome-img {
       content: url('../public/welcome.svg');
       max-width: 100%;
       margin-top: 15%;
-    } 
+    }
   }
 
-  .thanks-container  {
+  .thanks-container {
     opacity: 1;
     pointer-events: all;
     display: block;
     background: white;
     max-width: 100vw;
-    max-height: 80vh !important;
-    #thanks-img{
+
+    #thanks-img {
       content: url('../public/thanks.gif');
       max-width: 100%;
     }
   }
 
   .seperators-container {
-    #seperator-1-img{
+    #seperator-1-img {
       content: url('../public/seperator-1.svg');
       max-width: 100%;
     }
-    #seperator-2-img{
+
+    #seperator-2-img {
       content: url('../public/seperator-3.svg');
       max-width: 100%;
     }
-    #seperator-3-img{
+
+    #seperator-3-img {
       content: url('../public/seperator-2.svg');
       max-width: 100%;
     }
@@ -360,6 +363,121 @@ body {
         height: 2px;
         background-color: $text-color;
         margin: 20px auto;
+      }
+    }
+
+    &.comments {
+      background: rgba(255, 255, 255, 0.8);
+      padding: 20px;
+      padding-top: 6px;
+      height: 100%;
+      width: 100%;
+
+      .comments-container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+
+      .comments-list {
+        border: 1px solid #ccc;
+        padding: 20px;
+        border-radius: 5px;
+        margin-top: 20px;
+        background-color: #f7f7f7;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      .comments-ul {
+        list-style-type: none;
+        padding: 0;
+        max-height: 300px;
+        /* Set a max height to make it scrollable */
+        overflow-y: auto;
+        /* Enable vertical scrolling if content exceeds max height */
+      }
+
+      // .comments-ul li {
+      //   border-bottom: 1px solid #ccc;
+      //   /* Add a bottom border for separation */
+      //   padding: 10px 0;
+      //   /* Add some vertical padding for spacing */
+      // }
+
+      .comment-item {
+        margin-bottom: 20px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid #eee;
+        /* Add a bottom border for separation */
+      }
+
+      .comment-content {
+        margin-left: 20px;
+        /* Add some margin to the left for spacing */
+      }
+
+      .comment-name {
+        font-weight: bold;
+        margin-bottom: 5px;
+      }
+
+      .comment-time {
+        color: #777;
+        /* Color for the timestamp */
+        margin-bottom: 5px;
+        font-size: 14px;
+        /* Adjust the font size as needed */
+      }
+
+      .comment-text {
+        margin: 0;
+      }
+
+      /* Style the last comment-item to remove the bottom border */
+      .comment-item:last-child {
+        border-bottom: none;
+      }
+
+      /* Additional styling for input and button, customize as needed */
+      input[type="text"],
+      textarea {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+
+      button {
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: #0056b3;
+      }
+
+      /* Responsive styles for mobile devices */
+      @media (max-width: 768px) {
+        .comments-container {
+          padding: 10px;
+        }
+
+        .comments-list {
+          padding: 10px;
+        }
+
+        .comment-item {
+          margin-bottom: 10px;
+        }
+
+        .comment-content {
+          margin-left: 10px;
+        }
       }
     }
   }

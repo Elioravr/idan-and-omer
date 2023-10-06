@@ -5,6 +5,7 @@ import ScheduleHeader from './ScheduleHeader';
 import ScheduleItem from './ScheduleItem';
 import WhatToBring from './WhatToBring';
 import './App.scss';
+import CommentsPage from './Comments';
 
 function App() {
   const ref = useRef(null);
@@ -154,20 +155,21 @@ function App() {
         </div>
 
       </Page>
-      <div className='seperators-container'>
+      {/* <div className='seperators-container'>
         <img id='seperator-3-img' alt='mySvgImage' />
-        </div>
-      {/* <Page
-        id='Comments'
-        pageClassName='hotel'>
-        <div className='title'>
-          <div>Comments</div>
-        </div>
-      </Page> */}
+        </div> */}
 
         <div className='thanks-container'>
         <img id='thanks-img' alt='mySvgImage' />
         </div>
+      <Page
+        id='Comments'
+        pageClassName='comments'>
+        <div className='title'>
+          <div>Comments</div>
+        </div>
+        <CommentsPage />
+      </Page>
     </div>
   );
 }
