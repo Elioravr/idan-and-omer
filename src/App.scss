@@ -377,8 +377,9 @@ body {
         max-width: 800px;
         margin: 0 auto;
         padding: 20px;
+        direction: rtl; /* Right-to-left direction */
       }
-
+      
       .comments-list {
         border: 1px solid #ccc;
         padding: 20px;
@@ -387,55 +388,72 @@ body {
         background-color: #f7f7f7;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
       }
-
+      
       .comments-ul {
         list-style-type: none;
         padding: 0;
-        max-height: 300px;
-        /* Set a max height to make it scrollable */
-        overflow-y: auto;
-        /* Enable vertical scrolling if content exceeds max height */
+        max-height: 100vh; /* Set a max height to make it scrollable */
+        overflow-y: auto; /* Enable vertical scrolling if content exceeds max height */
       }
-
-      // .comments-ul li {
-      //   border-bottom: 1px solid #ccc;
-      //   /* Add a bottom border for separation */
-      //   padding: 10px 0;
-      //   /* Add some vertical padding for spacing */
-      // }
-
+      
       .comment-item {
         margin-bottom: 20px;
         padding-bottom: 10px;
-        border-bottom: 1px solid #eee;
-        /* Add a bottom border for separation */
+        border-bottom: 1px solid #eee; /* Add a bottom border for separation */
+        display: flex; /* Display name and timestamp in a row */
+        justify-content: flex-start;
+      }
+      
+      .comment-title {
+        margin-left: 10px;
+        min-width: 20%;
       }
 
       .comment-content {
-        margin-left: 20px;
-        /* Add some margin to the left for spacing */
+        margin-left: 20px; /* Add some margin to the left for spacing */
       }
-
+      
       .comment-name {
         font-weight: bold;
         margin-bottom: 5px;
       }
-
+      
       .comment-time {
-        color: #777;
-        /* Color for the timestamp */
+        color: #777; /* Color for the timestamp */
         margin-bottom: 5px;
-        font-size: 14px;
-        /* Adjust the font size as needed */
+        font-size: 14px; /* Adjust the font size as needed */
+        direction: ltr;
       }
-
+      
       .comment-text {
         margin: 0;
       }
-
+      
       /* Style the last comment-item to remove the bottom border */
       .comment-item:last-child {
         border-bottom: none;
+      }
+      
+      /* Responsive styles for mobile devices */
+      @media (max-width: 768px) {
+        .comments-container {
+          padding: 10px;
+          direction: rtl;
+        }
+      
+        .comments-list {
+          padding: 10px;
+        }
+      
+        .comment-item {
+          margin-bottom: 10px;
+          display: flex; /* Stack name and timestamp vertically */
+          align-items: flex-start; /* Align name and timestamp to the left */
+        }
+      
+        .comment-name {
+          margin-bottom: 0; /* Remove margin-bottom for name in mobile */
+        }
       }
 
       /* Additional styling for input and button, customize as needed */
@@ -459,25 +477,6 @@ body {
 
       button:hover {
         background-color: #0056b3;
-      }
-
-      /* Responsive styles for mobile devices */
-      @media (max-width: 768px) {
-        .comments-container {
-          padding: 10px;
-        }
-
-        .comments-list {
-          padding: 10px;
-        }
-
-        .comment-item {
-          margin-bottom: 10px;
-        }
-
-        .comment-content {
-          margin-left: 10px;
-        }
       }
     }
   }

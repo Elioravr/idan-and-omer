@@ -86,11 +86,13 @@ const CommentsPage = () => {
                 </p>
               <p className="comment-text">{comment.text}</p> */}
 
-              <div className="comment-content">
-                <p className="comment-name">{comment.name}</p>
-                <p className="comment-time">
+              <div className="comment-title">
+                <div className="comment-name">{comment.name}</div>
+                <div className="comment-time">
                   {formatTimestamp(comment.timestamp)}
-                </p>
+                </div>
+                </div>
+              <div className="comment-content">
                 <p className="comment-text">{comment.text}</p>
               </div>
             </li>
