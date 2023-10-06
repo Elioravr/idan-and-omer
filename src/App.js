@@ -43,14 +43,6 @@ function App() {
   useEffect(() => {
     // Calculate margins when the component mounts
     handleImageLoad();
-
-    // // Recalculate margins on window resize
-    // window.addEventListener('resize', handleImageLoad);
-
-    // // Cleanup the event listener when the component unmounts
-    // return () => {
-    //   window.removeEventListener('resize', handleImageLoad);
-    // };
   }, []);
   return (
     <div className='App' ref={ref}>
@@ -59,9 +51,9 @@ function App() {
 
       <Page id='Home' pageClassName='home'>
         <div className='text title'>
-          <div>Idan</div>
-          <div>&</div>
           <div>Omer</div>
+          <div>&</div>
+          <div>Idan</div>
         </div>
         <div className='text dates'>22.06 - 20.06</div>
       </Page>
@@ -149,10 +141,7 @@ function App() {
                   *יש טיסות שנוחתות יותר מאוחר, למה לא בהן?
                 </div>
                 <div>
-                  להגיע למלון בשעה 16-17 יהיה לכם מאוחר ולא תספיקו לקלוט מה קורה וכבר אתם באירוע ערב!
-                </div>
-                <div>
-                  חשוב לנו שיהיה לכם זמן להתאקלם, לעשות צ׳קאין כמו שצריך והכי חשוב - להיכנס לאווירה!
+                  להגיע למלון בשעה 16-17 יהיה מאוחר וחשוב לנו שיהיה לכם זמן להתאקלם, לעשות צ׳קאין כמו שצריך והכי חשוב - להיכנס לאווירה!
                 </div>
               </div>
             </div>
