@@ -14,8 +14,6 @@ function App() {
     const imgNode = listNode.querySelector(`#${pageId}`);
     imgNode.scrollIntoView({
       behavior: 'smooth'
-      // block: 'nearest',
-      // inline: 'center'
     });
   },
     [ref]);
@@ -25,7 +23,7 @@ function App() {
       <div className='background'></div>
       <Menu setCurrentPage={setCurrentPage} />
 
-      <Page id='Home' pageClassName='home' isVisible={true}> {/*isVisible={currentPage === 'Home'}>*/}
+      <Page id='Home' pageClassName='home'>
         <div className='text title'>
           <div>Idan</div>
           <div>&</div>
@@ -33,23 +31,13 @@ function App() {
         </div>
         <div className='text dates'>22.06 - 20.06</div>
       </Page>
-      <div className='page-separator'></div>
-
-      <Page id='Entrance' pageClassName='entrance' isVisible={true}> {/*isVisible={currentPage === 'Entrance'}>*/}
-        <div className='title'>
-          Ready??
-        </div>
-        <div className='container'>
-          <img id='welcome-img'/>
-        </div>
-      </Page>
-      <div className='page-separator'></div>
-
+      <div id='Entrance' className='img-container page'>
+        <img id='welcome-img' alt='mySvgImage' />
+      </div>
       <Page
         id='Schedule'
         pageClassName='schedule'
-        title='Schedule'
-        isVisible={true}> {/*isVisible={currentPage === 'Schedule'}>*/}
+        title='Schedule'>
         <div className='schedule-container'>
           <ScheduleHeader date='חמישי - 20.06.2024' />
           <ScheduleItem emoji={'🛩️'} text='נותחים באתונה' />
@@ -86,21 +74,23 @@ function App() {
           <ScheduleItem emoji={'🚌'} text='חוזרים הביתה בהסעות' isLast />
         </div>
       </Page>
-      <div className='page-separator'></div>
+      <div className='seperators-container'>
+        <img id='seperator-1-img' alt='mySvgImage' />
+        </div>
 
       <Page
         id='WhatToBring'
         pageClassName='what-to-bring'
-        title='Todo List'
-        isVisible={true}> {/*isVisible={currentPage === 'WhatToBring'}>*/}
+        title='Todo List'>
         <WhatToBring />
       </Page>
-      <div className='page-separator'></div>
+      <div className='seperators-container'>
+        <img id='seperator-2-img' alt='mySvgImage' />
+        </div>
 
       <Page
         id='Information'
-        pageClassName='information'
-        isVisible={true}> {/*isVisible={currentPage === 'Information'}>*/}
+        pageClassName='information'>
         <div className='title'>
           <div>Information</div>
         </div>
@@ -142,9 +132,6 @@ function App() {
               <div>
                 שלחו לנו וואטסאפ עם צילום מסך של המספר טיסה והשעות הלוך חזור
               </div>
-              <div>
-                על מנת שנוכל לתאם עבורכם ועבור כולם את ההסעה הטובה ביותר!
-              </div>
             </div>
           </div>
 
@@ -167,15 +154,20 @@ function App() {
         </div>
 
       </Page>
-      <div className='page-separator'></div>
-
-      <Page
+      <div className='seperators-container'>
+        <img id='seperator-3-img' alt='mySvgImage' />
+        </div>
+      {/* <Page
         id='Comments'
-        pageClassName='hotel' isVisible={true}> {/*isVisible={currentPage === 'Comments'}>*/}
+        pageClassName='hotel'>
         <div className='title'>
           <div>Comments</div>
         </div>
-      </Page>
+      </Page> */}
+
+        <div className='thanks-container'>
+        <img id='thanks-img' alt='mySvgImage' />
+        </div>
     </div>
   );
 }

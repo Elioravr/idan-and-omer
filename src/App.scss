@@ -21,19 +21,10 @@ body {
   right: 0;
   overflow: hidden;
   z-index: -1;
-  /* Remove this line if it's not going to be a background! */
-
   text-align: center;
   direction: rtl;
   font-family: 'Varela Round', sans-serif;
   height: 100%;
-
-  .page-separator {
-    width: 100%;
-    height: 2px;
-    background-color: black;
-    margin: 20px auto;
-  }
 
   .background {
     position: fixed;
@@ -114,6 +105,48 @@ body {
     }
   }
 
+  .img-container {
+    opacity: 1;
+    pointer-events: all;
+    display: block;
+    max-height: 100vh;
+    background: white;
+    max-width: 100vw;
+    #welcome-img {
+      content: url('../public/welcome.svg');
+      max-width: 100%;
+      margin-top: 15%;
+    } 
+  }
+
+  .thanks-container  {
+    opacity: 1;
+    pointer-events: all;
+    display: block;
+    background: white;
+    max-width: 100vw;
+    max-height: 80vh !important;
+    #thanks-img{
+      content: url('../public/thanks.gif');
+      max-width: 100%;
+    }
+  }
+
+  .seperators-container {
+    #seperator-1-img{
+      content: url('../public/seperator-1.svg');
+      max-width: 100%;
+    }
+    #seperator-2-img{
+      content: url('../public/seperator-3.svg');
+      max-width: 100%;
+    }
+    #seperator-3-img{
+      content: url('../public/seperator-2.svg');
+      max-width: 100%;
+    }
+  }
+
   .page {
     min-height: 100vh;
     opacity: 1;
@@ -135,7 +168,7 @@ body {
 
     &.home {
       .title {
-        height: 700px;
+        height: 600px;
         display: flex;
         flex-direction: column;
         font-size: 90px;
@@ -161,13 +194,6 @@ body {
       height: 100%;
       width: 100%;
 
-      #welcome-img {
-        content: url('../public/welcome.png');
-        width: 85vw;
-        height: 69vh;
-        margin-top: 20%;
-        max-width: 331px;
-      }
     }
 
     &.schedule {

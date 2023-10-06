@@ -48,12 +48,12 @@ function Menu({ setCurrentPage }) {
         >
            מידע שימושי מאוד!
         </div>
-        <div
+        {/* <div
           className='menu-item'
           onClick={createMenuButtonCallback('Comments')}
         >
           תגובות
-        </div>
+        </div> */}
       </div>
     </div>
   );
