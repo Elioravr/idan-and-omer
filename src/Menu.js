@@ -30,6 +30,9 @@ function Menu({ setCurrentPage }) {
         <div className='menu-item' onClick={createMenuButtonCallback('Entrance')}>
           פתיח קטן
         </div>
+        <div className='menu-item' onClick={createMenuButtonCallback('Updates')}>
+          עדכונים חשובים
+        </div>
         <div
           className='menu-item'
           onClick={createMenuButtonCallback('Schedule')}
@@ -46,7 +49,7 @@ function Menu({ setCurrentPage }) {
           className='menu-item'
           onClick={createMenuButtonCallback('Information')}
         >
-           מידע שימושי מאוד!
+           דרכי הגעה
         </div>
         <div
           className='menu-item'

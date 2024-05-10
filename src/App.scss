@@ -140,6 +140,10 @@ body {
       content: url('../public/seperator-2.svg');
       max-width: 100%;
     }
+    #seperator-3-img {
+      content: url('../public/seperator-3.svg');
+      max-width: 100%;
+    }
   }
 
   .page {
@@ -319,12 +323,49 @@ body {
       height: 100%;
       width: 100%;
 
+      .add-shuttle-container{
+          padding: 20px;
+          background-color: #f7f7f7;
+          border-radius: 8px;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        
+        
+        label {
+          display: block;
+          margin-bottom: 10px;
+        }
+        
+        input[type="text"],
+        select,
+        .submit-button {
+          width: 100%;
+          padding: 10px;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          font-size: 16px;
+          margin-bottom: 15px;
+        }
+        
+        .submit-button {
+          background-color: transparent;
+          color: black;
+          border: none;
+          text-align: center;
+          cursor: pointer;
+        }
+      }
+
+      .useful-update-container {
+        margin-top: 5%;
+      }
+
       .section-container {
         min-height: 25%;
 
         display: flex;
         flex-direction: column;
         align-items: center;
+        min-height: 60px;
       }
 
       .info-title {
@@ -334,10 +375,21 @@ body {
         text-align: right;
       }
 
+      .shuttle-info-title{
+        font-size: 25px;
+        margin-top: 20px;
+        min-width: 100%;
+        text-align: right;
+      }
+
       .text {
         min-width: 100%;
         text-align: right;
 
+        .title-in-text{
+        text-align: center;
+        font-weight: 600;
+        }
         div {
           margin-top: 10px;
         }

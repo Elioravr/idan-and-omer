@@ -4,6 +4,7 @@ import Page from './Page';
 import ScheduleHeader from './ScheduleHeader';
 import ScheduleItem from './ScheduleItem';
 import WhatToBring from './WhatToBring';
+import ChooseShuttle from './ChooseShuttle';
 import './App.scss';
 import CommentsPage from './Comments';
 import thanks from './thanks.gif';
@@ -59,8 +60,66 @@ function App() {
       </Page>
       <div id='Entrance' className='img-container'>
         <img id='welcome-img' alt='mySvgImage' onLoad={handleImageLoad}
-  ref={imageRef}
-  style={{ marginTop: `${marginTop}px`, marginBottom: `${marginBottom}px` }} />
+          ref={imageRef}
+          style={{ marginTop: `${marginTop}px`, marginBottom: `${marginBottom}px` }} />
+      </div>
+      <Page
+        id='Updates'
+        pageClassName='information'>
+        <div className='title'>
+          <div>Updates!</div>
+        </div>
+
+        <div className='useful-update-container' >
+          <div className='section-container'>
+            <div className='text'>
+              {
+                new Date(2024, 6, 20) - new Date() >= 0 ?
+              <div>
+                אנחנו מתרגשים ממש לפגוש את כולכם בעוד <span>{Math.round((new Date(2024, 6, 20) - new Date()) / (1000 * 60 * 60 * 24))}</span> ימים! אבל מי סופר????
+              </div>
+                :
+                <div>
+                מה?? זה כבר קרה?? אפשר שוב?
+              </div>
+              }
+            </div>
+          </div>
+          <div className='separator'></div>
+          <div className='section-container'>
+            <div className='text'>
+              <div>
+                בעקבות הביטולים, העיכובים וההקדמות של הטיסות שינינו את השאטלים גם להלוך וגם לחזור! שימו לב שאתם מסונכרנים על זה ושאתם מעדכנים באיזה מהשאטלים בחזור תרצו להיות! זה ממש חשוב ויחסוך לנו המון טלפונים! ❤️
+              </div>
+            </div>
+          </div>
+          <div className='separator'></div>
+          <div className='section-container'>
+            <div className='text'>
+              <div className='title-in-text'>
+                Dress Code Updates
+              </div>
+              <div>
+                ערב טברנה (יום חמישי) - מוזמנים ללבוש כל גווני הלבן, בז׳ וכו׳
+              </div>
+              <div>
+                ערב החתונה (יום שישי) - תבואו חגיגיים! (אבל לא בלבן אהה?? 😝)
+              </div>
+            </div>
+          </div>
+          <div className='separator'></div>
+          <div className='section-container'>
+            <div className='text'>
+              <div>
+                אם יהיו עוד שינויים נתמודד איתם! אל חשש!
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </Page>
+      <div className='thanks-container'>
+        <img id='thanks-img' alt='mySvgImage' src={thanks} />
       </div>
       <Page
         id='Schedule'
@@ -120,7 +179,7 @@ function App() {
         id='Information'
         pageClassName='information'>
         <div className='title'>
-          <div>Information</div>
+          <div>Shuttles</div>
         </div>
 
         <div className='useful-information-container' >
@@ -131,36 +190,39 @@ function App() {
                 ארגנו עבורכם שני שאטלים שיאספו אתכם משדה התעופה באתונה (ATH) ויביאו אתכם עד המלון. השאטלים מתוכננים לשעות:
               </div>
               <div>
-                11:00 - מיועד למשקימי קום לטיסות שנוחתות בסביבות 10
+                08:30 - מיועד לטיסות שנוחתות בסביבות 7
               </div>
               <div>
-                13:00 - מיועד לכמה טיסות שכבר ראינו שנוחתות בסביבות 12
+                11:00 - מיועד לכמה טיסות שכבר ראינו שנוחתות בסביבות 9-10
               </div>
-              <div className='side-note-container'>
+              {/* <div className='side-note-container'>
                 <div>
                   *יש טיסות שנוחתות יותר מאוחר, למה לא בהן?
                 </div>
                 <div>
                   להגיע למלון בשעה 16-17 יהיה מאוחר וחשוב לנו שיהיה לכם זמן להתאקלם, לעשות צ׳קאין כמו שצריך והכי חשוב - להיכנס לאווירה!
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
           <div className='separator'></div>
-          <div className='section-container'>
+          {/* <div className='section-container'>
 
-            <div className='info-title'>אישורי הגעה</div>
+            <div className='info-title'>עדכונים חשובים!</div>
             <div className='text'>
               <div>
-                כמו שאתם כבר יודעים, אנחנו מחכים ומתרגשים לשמוע שסגרתם טיסות!
+                מתרגשים לספר שכולם(!!) סגרו כבר טיסות!
               </div>
               <div>
-                שלחו לנו וואטסאפ עם צילום מסך של המספר טיסה והשעות הלוך חזור
+                בעקבות הביטולים, העיכובים וההקדמות של הטיסות שינינו את השאטלים גם להלוך וגם לחזור! שימו לב שאתם מסונכרנים על זה!
+              </div>
+              <div>
+                כמובן שאם יהיו עוד שינויים נתמודד איתם! מצאתם שהטיסה שלכם לא נוחתת בשעות של השאטלים? דברו איתנו דחוף!!
               </div>
             </div>
           </div>
 
-          <div className='separator'></div>
+          <div className='separator'></div> */}
           <div className='section-container'>
 
             <div className='info-title'>איך חוזרים</div>
@@ -169,20 +231,32 @@ function App() {
                 נפרד לאחר הצ׳ק אאוט מהמלון ב11:30 ביום שבת (עצוב לנו כבר מעכשיו!!!!)
               </div>
               <div>
-                נעלה לשאטלים חזרה לאתונה - נסיעה של כשעה, רק מזכירים.
+                שני שאטלים לרשותכם! האחד, לשדה התעופה באתונה (ATH) - נסיעה של כשעה ורבע
               </div>
               <div>
-                לא נעצור אתכם אם תישארו באתונה, תעשו שופינג, תעברו לאי אחר או תחזרו ישר הביתה ❤️
+                והשני לאתונה, למרכז העיר - נסיעה של כשעה ורבע גם כן
               </div>
+              <div>
+                תעדכנו אותנו באיזה מן השאטלים ברצונכם לעלות ובהקדם! ❤️
+              </div>
+            </div>
+          </div>
+          <div className='separator'></div>
+          <div className='section-container'>
+
+            <div className='shuttle-info-title'>שלחו לנו את השאטל שלכם</div>
+            <div className='text'>
+              <ChooseShuttle />
             </div>
           </div>
         </div>
 
       </Page>
 
-      <div className='thanks-container'>
-        <img id='thanks-img' alt='mySvgImage' src={thanks} />
+      <div className='seperators-container'>
+        <img id='seperator-3-img' alt='mySvgImage' />
       </div>
+
       <Page
         id='Comments'
         pageClassName='comments'>

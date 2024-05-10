@@ -43,7 +43,9 @@ const defaultTodos = [
     subTitle: 'בחמישי ושישי אתם לא מגיעים!!',
     isDone: false },
   { title: 'טוטאל לוק חגיגי לחתונה', isDone: false },
-  { title: 'לוק ערב לטברנה', isDone: false },
+  { title: 'לוק ערב לטברנה - ', 
+  subTitle: 'ערב בלבן (גם בהיר הולך!)',
+  isDone: false },
   { title: 'בגדי חופשה', isDone: false },
   { title: 'בגדי ים', isDone: false },
   { title: 'כפכפים', isDone: false },
@@ -57,7 +59,17 @@ function WhatToBring() {
   useEffect(() => {
     const listInJson = localStorage.getItem('idanAndOmerList');
     if (listInJson != null) {
-      setTodoList(JSON.parse(listInJson));
+      const parsed = JSON.parse(listInJson);
+      for (let index = 0; index < defaultTodos.length; index++) {
+        const todo = defaultTodos[index];
+        parsed[index].title = todo.title;
+        if(todo.subTitle){
+          parsed[index].subTitle = todo.subTitle;
+        } else {
+          parsed[index].subTitle = undefined;
+        }
+      }
+      setTodoList(parsed);
     }
   }, []);
 
