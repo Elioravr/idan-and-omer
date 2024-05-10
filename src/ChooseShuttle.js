@@ -24,18 +24,6 @@ function ChooseShuttle() {
     const [inputError, setInputError] = useState('');
     const [selectError, setSelectError] = useState('');
 
-    const fetchAnswer = async () => {
-        const shuttleId = localStorage.getItem('shuttleId');
-        if (shuttleId) {
-            const shuttleData = await get(shuttleId);
-            if (shuttleData) {
-                setSubmitted(true);
-                setNameTodoInputValue(shuttleData.name);
-                setShuttleWayValue(shuttleData.way);
-            }
-        }
-    };
-
     const regret = () => {
         setSubmitted(false);
     };
@@ -58,6 +46,17 @@ function ChooseShuttle() {
         }
     };
     useEffect(() => {
+        const fetchAnswer = async () => {
+            const shuttleId = localStorage.getItem('shuttleId');
+            if (shuttleId) {
+                const shuttleData = await get(shuttleId);
+                if (shuttleData) {
+                    setSubmitted(true);
+                    setNameTodoInputValue(shuttleData.name);
+                    setShuttleWayValue(shuttleData.way);
+                }
+            }
+        };
         fetchAnswer();
     }, []);
 
@@ -80,7 +79,7 @@ function ChooseShuttle() {
                         <option value="">לאן בא לי לחזור?</option>
                         <option value="athens">להמשיך לחגוג באתונה</option>
                         <option value="airport">לשדה והביתה</option>
-                        <option value="earlier">הולכים מוקדם יותר מהשאטלים</option>
+                        <option value="earlier">אני עצמאי.ת</option>
                     </select>
                 </label>
                 {selectError && <span style={{ color: 'red' }}>{selectError}</span>}</div>
@@ -99,7 +98,7 @@ function ChooseShuttle() {
     }
 
     async function updateOrAdd() {
-        console.log(`Name: ${nameInputValue}, shuttle: ${shuttleWayValue}`);
+        // console.log(`Name: ${nameInputValue}, shuttle: ${shuttleWayValue}`);
         const shuttleId = localStorage.getItem('shuttleId');
         const shuttlesRef = collection(db, 'shuttles');
         const shuttleData = {
