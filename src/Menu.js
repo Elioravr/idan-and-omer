@@ -27,11 +27,11 @@ function Menu({ setCurrentPage }) {
         <div className='menu-item' onClick={createMenuButtonCallback('Home')}>
           דף הבית
         </div>
-        <div className='menu-item' onClick={createMenuButtonCallback('Entrance')}>
-          פתיח קטן
-        </div>
         <div className='menu-item' onClick={createMenuButtonCallback('Updates')}>
           עדכונים חשובים
+        </div>
+        <div className='menu-item' onClick={createMenuButtonCallback('Entrance')}>
+          פתיח קטן
         </div>
         <div
           className='menu-item'

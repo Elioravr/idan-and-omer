@@ -152,6 +152,20 @@ body {
     pointer-events: all;
     display: block;
 
+    .submit-button {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 16px;
+      margin-bottom: 15px;
+      background-color: transparent;
+      color: black;
+      // border: none;
+      text-align: center;
+      cursor: pointer;
+    }
+
     .title {
       color: $text-color;
       font-family: 'Dancing Script', cursive;
@@ -336,22 +350,13 @@ body {
         }
         
         input[type="text"],
-        select,
-        .submit-button {
+        select {
           width: 100%;
           padding: 10px;
           border: 1px solid #ccc;
           border-radius: 4px;
           font-size: 16px;
           margin-bottom: 15px;
-        }
-        
-        .submit-button {
-          background-color: transparent;
-          color: black;
-          border: none;
-          text-align: center;
-          cursor: pointer;
         }
       }
 

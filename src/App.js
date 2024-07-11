@@ -42,7 +42,6 @@ function App() {
   };
 
   useEffect(() => {
-    window.addEventListener("resize", handleImageLoad);
     // Calculate margins when the component mounts
     handleImageLoad();
   }, []);
@@ -59,11 +58,7 @@ function App() {
         </div>
         <div className='text dates'>22.06 - 20.06</div>
       </Page>
-      <div id='Entrance' className='img-container'>
-        <img id='welcome-img' alt='mySvgImage' onLoad={handleImageLoad}
-          ref={imageRef}
-          style={{ marginTop: `${marginTop}px`, marginBottom: `${marginBottom}px` }} />
-      </div>
+      
       <Page
         id='Updates'
         pageClassName='information'>
@@ -76,36 +71,42 @@ function App() {
             <div className='text'>
               {
                 new Date(2024, 6, 20) - new Date() >= 0 ?
-              <div>
-                אנחנו מתרגשים ממש לפגוש את כולכם בעוד <span>{Math.round((new Date(2024, 5, 21) - new Date()) / (1000 * 60 * 60 * 24))}</span> ימים! אבל מי סופר????
-              </div>
-                :
-                <div>
-                מה?? זה כבר קרה?? אפשר שוב?
-              </div>
+                  <div>
+                    אנחנו מתרגשים ממש לפגוש את כולכם בעוד <span>{Math.round((new Date(2024, 5, 21) - new Date()) / (1000 * 60 * 60 * 24))}</span> ימים! אבל מי סופר????
+                  </div>
+                  :
+                  <div>
+                    מה?? זה כבר קרה?? אפשר שוב?
+                  </div>
               }
             </div>
           </div>
           <div className='separator'></div>
           <div className='section-container'>
             <div className='text'>
+              <div className='title-in-text'>
+                Dress Code
+              </div>
               <div>
-                בעקבות הביטולים, העיכובים וההקדמות של הטיסות שינינו את השאטלים גם להלוך וגם לחזור! שימו לב שאתם מסונכרנים על זה ושאתם מעדכנים באיזה מהשאטלים בחזור תרצו להיות! זה ממש חשוב ויחסוך לנו המון טלפונים! ❤️
+                ערב טברנה (יום חמישי) - מוזמנים ללבוש כל גווני הלבן, בז׳ וכו׳
+              </div>
+              <div>
+                ערב החתונה (יום שישי) - תבואו חגיגיים!
               </div>
             </div>
           </div>
           <div className='separator'></div>
           <div className='section-container'>
             <div className='text'>
-              <div className='title-in-text'>
-                Dress Code Updates
+            <div>
+                חשוב חשוב חשוב!
               </div>
-              <div>
-                ערב טברנה (יום חמישי) - מוזמנים ללבוש כל גווני הלבן, בז׳ וכו׳
+            <div>
+                הזמנים של השאטלים שונו!! שימו לב לשעות ומלאו את הטופס שנדע איך אתם חוזרים! ❤️
               </div>
-              <div>
-                ערב החתונה (יום שישי) - תבואו חגיגיים! (אבל לא בלבן אהה?? 😝)
-              </div>
+              <div className='submit-button' onClick={_ => setCurrentPage('Information')}>
+                    תלחצו פה, נעביר אתכם ישר למקום הנכון להתעדכן בו
+                </div>
             </div>
           </div>
           <div className='separator'></div>
@@ -119,6 +120,11 @@ function App() {
         </div>
 
       </Page>
+      <div id='Entrance' className='img-container'>
+        <img id='welcome-img' alt='mySvgImage' onLoad={handleImageLoad}
+          ref={imageRef}
+          style={{ marginTop: `${marginTop}px`, marginBottom: `${marginBottom}px` }} />
+      </div>
       <div className='thanks-container'>
         <img id='thanks-img' alt='mySvgImage' src={thanks} />
       </div>
@@ -128,7 +134,7 @@ function App() {
         title='Schedule'>
         <div className='schedule-container'>
           <ScheduleHeader date='חמישי - 20.06.2024' />
-          <ScheduleItem emoji={'🛩️'} text='נותחים באתונה' />
+          <ScheduleItem emoji={'🛩️'} text='נוחתים באתונה' />
           <ScheduleItem emoji={'🚌'} text='נסיעה של כשעה למלון בהסעות' />
           <ScheduleItem emoji={'🥂'} text='דרינק ראשון וצ׳ק אין' />
           <ScheduleItem emoji={'🍽️'} text='ארוחת צהריים של אחרי טיסה' />
@@ -191,39 +197,14 @@ function App() {
                 ארגנו עבורכם שני שאטלים שיאספו אתכם משדה התעופה באתונה (ATH) ויביאו אתכם עד המלון. השאטלים מתוכננים לשעות:
               </div>
               <div>
-                08:30 - מיועד לטיסות שנוחתות בסביבות 7
+                10:00 - מיועד לטיסות שנוחתות בסביבות 7-9
               </div>
               <div>
-                11:00 - מיועד לכמה טיסות שכבר ראינו שנוחתות בסביבות 9-10
+                14:30 - מיועד לטיסות שנוחתות בסביבות 11-14
               </div>
-              {/* <div className='side-note-container'>
-                <div>
-                  *יש טיסות שנוחתות יותר מאוחר, למה לא בהן?
-                </div>
-                <div>
-                  להגיע למלון בשעה 16-17 יהיה מאוחר וחשוב לנו שיהיה לכם זמן להתאקלם, לעשות צ׳קאין כמו שצריך והכי חשוב - להיכנס לאווירה!
-                </div>
-              </div> */}
             </div>
           </div>
           <div className='separator'></div>
-          {/* <div className='section-container'>
-
-            <div className='info-title'>עדכונים חשובים!</div>
-            <div className='text'>
-              <div>
-                מתרגשים לספר שכולם(!!) סגרו כבר טיסות!
-              </div>
-              <div>
-                בעקבות הביטולים, העיכובים וההקדמות של הטיסות שינינו את השאטלים גם להלוך וגם לחזור! שימו לב שאתם מסונכרנים על זה!
-              </div>
-              <div>
-                כמובן שאם יהיו עוד שינויים נתמודד איתם! מצאתם שהטיסה שלכם לא נוחתת בשעות של השאטלים? דברו איתנו דחוף!!
-              </div>
-            </div>
-          </div>
-
-          <div className='separator'></div> */}
           <div className='section-container'>
 
             <div className='info-title'>איך חוזרים</div>
@@ -244,8 +225,9 @@ function App() {
           </div>
           <div className='separator'></div>
           <div className='section-container'>
+          {/* <div className='title-in-text'>מה השאטל שתרצו לחזור בו?</div> */}
 
-            <div className='shuttle-info-title'>שלחו לנו את השאטל שלכם</div>
+            <div className='shuttle-info-title'>לאן השאטל שתרצו לחזור בו בשבת ב12:00?</div>
             <div className='text'>
               <ChooseShuttle />
             </div>
