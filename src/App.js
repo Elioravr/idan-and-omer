@@ -70,7 +70,7 @@ function App() {
           <div className='section-container'>
             <div className='text'>
               {
-                new Date(2024, 6, 20) - new Date() >= 0 ?
+                new Date(2024, 5, 20) - new Date() >= 0 ?
                   <div>
                     אנחנו מתרגשים ממש לפגוש את כולכם בעוד <span>{Math.round((new Date(2024, 5, 21) - new Date()) / (1000 * 60 * 60 * 24))}</span> ימים! אבל מי סופר????
                   </div>
